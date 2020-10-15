@@ -9,6 +9,6 @@ By clicking in 'Pair', you start the communication and allow the software to rec
 By clicking in the Settings push-button, you can adjust the PID parameters and the max/min temperature. These specifications will be saved and automatically loaded when the software opens again.
 
 -------------------------------------------------------------------------------------------
-Created by Allison Pessoa (allisonpessoa@hotmail.com) for academic purposes only. It is not supposed to be fully or partially commercialized.
+Created by Allison Pessoa (allisonpessoa@hotmail.com) for academic purposes.
 
-Please contact me if you want to report misfunctions.
+Please contact me to report misfunctions.
