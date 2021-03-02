@@ -7,9 +7,9 @@
                                                       September 2020
                                                 allisonpessoa@hotmail.com
 
-This heating device acts to hold constant (user-defined setpoint) the temperature at a thermal blancket by using a PID controller. 
+This heating device acts to hold at a constant temperature (user-defined setpoint) a thermal blancket by using a PID controller. 
 A thermistor is used for temperature sensing (input), and a silicone mat for heating (PWM output). The User Interface can receive the temperature data
-and/or send the P,I,D,Setpoint parameters. This communication is set via USB Serial protocol.
+and/or send the P,I,D,Setpoint parameters using Serial Communication.
 
 Commands:
 
@@ -20,8 +20,8 @@ Commands:
 
 Pins Interface:
 
--> Pin D5 -> PWM 0-5V, 980 Hz, Output
--> Pin A1 -> Analog Input (0-5V)
+-> Pin D5 -> Thermal Blancket | PWM 0-5V, 980 Hz, Output
+-> Pin A1 -> Thermistor | Analog Input (0-5V)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 #include "thermistor.h"
