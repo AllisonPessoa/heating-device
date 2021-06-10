@@ -1,6 +1,6 @@
 # heating-device
 
-This is a user-interface software for a heating device that allows the communication between the PC and a thermal blanket acting as a heater. There is a hardware that acts to hold at a constant setpoint the temperature in the thermal blanket by using a PID controller. More info about the hardware and technical specifications can be found in the microcontroller source file.
+This is an user-interface software for a heating device that acts to hold at a constant setpoint (PID controller) the temperature in a thermal blanket. The communication PC-Heater is done by an Arduino, and more info about the hardware and technical specifications can be found in the microcontroller source file.
 
 ![Screenshot](screenshot.png)
 
