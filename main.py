@@ -8,6 +8,8 @@
 
 Allison Pessoa
 allisonpessoa@hotmail.com
+
+under GNU GPLv3 License
 """
 
 #System
