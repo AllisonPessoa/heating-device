@@ -33,7 +33,9 @@ import pickle
 import numpy as np
 
 class Plot():
+    """ Plot Class to show the temperature as a function of time in the screen"""
     def __init__(self, widget_plot, toolbar):
+        """ Initializes the plot Widget and adds a item"""
         self.widget_plot = widget_plot
         self.toolbar = toolbar
         self.data =  [0,1] #Initial data, arbitrary
@@ -52,11 +54,13 @@ class Plot():
         self.plotWidget.show()
 
     def setData(self, data):
+        """ Change the data of the item and replot """
         self.item.set_data(np.asarray(data[0]),np.asarray(data[1]))
         self.plot.do_autoscale()
         self.plot.replot()
 
 class Worker(QtCore.QObject):
+    """ Thread doing the backend """
     #Attributes
     parent = None
     paired = False
@@ -67,6 +71,7 @@ class Worker(QtCore.QObject):
     emitError = QtCore.pyqtSignal(str)
 
     def loopWork(self):
+        """ Checks if the device is paired and atualize the device's list """
         while 1:
             if self.paired == False:
                 self.atualizeListPorts.emit(serial.tools.list_ports.comports())
@@ -74,6 +79,7 @@ class Worker(QtCore.QObject):
                 self.acquire()
 
     def setPoint(self, tempValue):#avoid access objects direct from Main
+        """ Emit the setpoint to the device """
         try:
             text = str("SETPT("+str(int(tempValue*10))+")").encode('utf-8') #x10 to increase precision
             self.ser.write(text)
@@ -82,6 +88,7 @@ class Worker(QtCore.QObject):
             self.emitError.emit(errorMessage)
 
     def updateSettings(self, control_P, control_I, control_D):
+        """ Emit the PID params to the device """
         try:
             self.ser.write(str("UPDSETT("+str(int(control_P))+","+str(int(control_I))+","+str(int(control_D))+")").encode('utf-8'))
         except Exception as erro:
@@ -89,6 +96,7 @@ class Worker(QtCore.QObject):
             self.emitError.emit(errorMessage)
 
     def acquire(self):
+        """ Read and process the data sent by the device """
         value = 0
         try:
             receivedData = self.ser.readline()
@@ -104,6 +112,7 @@ class Worker(QtCore.QObject):
             self.emitError.emit(errorMessage)
 
 class Main(QtWidgets.QMainWindow, layout_form):
+    """ Thread responsible by the user interface """
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self,parent)
         self.setupUi(self)
