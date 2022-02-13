@@ -23,6 +23,9 @@ Pins Interface:
 -> Pin D5 -> Thermal Blancket | PWM 0-5V, 980 Hz, Output
 -> Pin A1 -> Thermistor | Analog Input (0-5V)
 
+
+under GNU GPLv3 License
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 #include "thermistor.h"
 #include <PID_v1.h>
