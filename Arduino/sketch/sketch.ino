@@ -30,6 +30,10 @@ under GNU GPLv3 License
 #include "thermistor.h"
 #include <PID_v1.h>
 
+#ifdef VERBOSE_SENSOR_ENABLED // undefine a macro from thermistor library
+  #undef VERBOSE_SENSOR_ENABLED // so it do not print other things than the temperature value
+#endif 
+
 #define NTC_PIN_INPUT A1 //Pin to NTC input
 #define PWM_PIN_OUTPUT 5 //Pin to PWM output
 
